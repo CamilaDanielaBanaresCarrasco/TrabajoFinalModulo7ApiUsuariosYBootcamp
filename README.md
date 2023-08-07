@@ -46,9 +46,10 @@ El cuerpo de la solicitud debe ser un JSON que contiene los datos actualizados d
     "lastname": "Sanchez",
     "email": "pedro.sanchez@correo.com"
 }
-
+```
 4- **Eliminar un usuario según su id:**   
 Para eliminar un usuario necesitarás hacer un DELETE a la siguiente URL:   
+```
 http://localhost:8080/user/usuarios/{id}
-
+```
 No necesitas incluir ningún cuerpo en la solicitud. Simplemente reemplaza `{id}` con el id del usuario que quieres eliminar.
