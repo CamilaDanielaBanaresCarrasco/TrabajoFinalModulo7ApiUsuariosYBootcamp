@@ -37,22 +37,20 @@ const findAll = async (req, res) => {
   }
 };
   
-  // Actualizar usuario por Id
-   const updateUserById = async (req, res) => {
-    try {
-      const [updated] = await User.update(req.body, {
-        where: { id: req.params.id }
-      });
-      if (updated) {
-        const updatedUser = await User.findOne({ where: { id: req.params.id } });
-        res.status(200).json({ user: updatedUser });
-      } else {
-        res.status(404).json({ message: 'User not found' });
-      }
-    } catch (error) {
-      res.status(500).json({ message: error.message });
+const updateUserById = async (req, res) => {
+  try {
+    const user = await User.findOne({ where: { id: req.params.id } });
+
+    if (user) {
+      const updatedUser = await user.update(req.body);
+      res.status(200).json({ user: updatedUser });
+    } else {
+      res.status(404).json({ message: 'User not found' });
     }
-  };
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
   
   // Eliminar un usuario por Id
    const deleteUserById = async (req, res) => {

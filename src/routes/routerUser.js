@@ -13,10 +13,10 @@ routerUser.get("/usuarios/:id", findUserById);
 routerUser.get("/usuarios", findAll);
 
 // Ruta para actualizar usuario por Id
-routerUser.put("usuarios/:id", updateUserById);
+routerUser.put("/usuarios/:id", updateUserById);
 
 // Ruta para eliminar un usuario por Id
-routerUser.delete("usuarios/:id", deleteUserById);
+routerUser.delete("/usuarios/:id", deleteUserById);
 
 export {routerUser};
 
